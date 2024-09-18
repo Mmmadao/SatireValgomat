@@ -70,7 +70,7 @@
                     if (answer === 'yes') {
                         setQuestion("Kommer du godt overens med dem?");
                     } else {
-                        showResult('FrP', 'Du stemmer FrP – alle saker er like viktige når de diskuteres rundt bordet, men den viktigste saken din er at du har masse god mat på til det.');
+                        showResult('FrP', 'Du stemmer FrP – alle saker er like viktige når de diskuteres rundt bordet, men den viktigste saken din er at du har masse god mat på bordet til diskusjonen.');
                         return;
                     }
                     break;
@@ -78,7 +78,7 @@
                     if (answer === 'yes') {
                         showResult('SV', 'Du stemmer SV – du leser deg så vidt opp på ting slik at du fremstår som interessant nok til at folk ønsker å omgås deg, men holder deg unna dybden for å unngå å tråkke noen på tærne.');
                     } else {
-                        showResult('Rødt', 'Du stemmer Rødt – alle saker er like viktig for deg i uansett sammenheng, og når andre glemmer å passe på hva de selv står for, så sørger du for at alle blir sørget for, som om hverdagen din var en stor begravelse!');
+                        showResult('Rødt', 'Du stemmer Rødt – alle saker er like viktig for deg i uansett sammenheng, og når andre glemmer å passe på hva de selv står for, så sørger du for at alle blir sørget for - som om hverdagen din var en stor begravelse!');
                     }
                     return;
                 case 4: // Spørsmål 4
@@ -92,7 +92,7 @@
                     break;
                 case 5: // Spørsmål 5
                     if (answer === 'yes') {
-                        showResult('AP', 'Du stemmer AP – du er flink til å tenke på alle slags muligheter, men du har litt vanskeligheter med å tenke på unnskyldninger for når det går galt - og det blir dessverre alltid å gå litt galt...');
+                        showResult('AP', 'Du stemmer AP – du er flink til å tenke på alle slags innfallsvinkler og muligheter, men du har litt vanskeligheter med å tenke på unnskyldninger for når det går galt - og dessverre, så går ting litt galt med deg i ledelsen...');
                     } else {
                         setQuestion("Ler du av at andre stammer?");
                     }
@@ -101,7 +101,7 @@
                     if (answer === 'yes') {
                         showResult('SP', 'Du stemmer SP – du har god humor og kan endre ditt perspektiv på ting. Går det galt, så kan man vel jo le av det? Så lenge det ikke går ut over deg, selvfølgelig…');
                     } else {
-                        showResult('Høyre', 'Du stemmer Høyre – du har funnet en fin balanse mellom å se på alle mulighetene og unnskyldningene som finnes, og velge en god vei som passer deg best.');
+                        showResult('Høyre', 'Du stemmer Høyre – du har funnet en fin balanse mellom å se på alle mulighetene og unnskyldningene som finnes, og du pleier å velge en god vei som passer deg, og bare deg best.');
                     }
                     return;
                 case 7: // Spørsmål 7
@@ -112,7 +112,7 @@
                     }
                     break;
                 case 8: // Spørsmål 8
-                    showResult('KrF', 'Du stemmer KrF – har du hørt det gode ordet? "Den som ikke er med meg, er mot meg. Og den som ikke samler med meg, han sprer…"');
+                    showResult('KrF', 'Du stemmer KrF – har du ikke enda hørt det gode ordet? "Den som ikke er med meg, er mot meg. Og den som ikke samler med meg, han sprer…"');
                     return;
                 default:
                     break;

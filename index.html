@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valgometer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        #question {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+        }
+        .result img {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Satire-Valgometer</h1>
+        <div id="question">Er homofiles rettigheter viktig for deg?</div>
+        <button onclick="handleAnswer('yes')">Ja</button>
+        <button onclick="handleAnswer('no')">Nei</button>
+
+        <div id="result" class="result" style="display: none;">
+            <img id="partyIcon" src="" alt="Partiikon"/>
+            <p id="resultText"></p>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+
+        function handleAnswer(answer) {
+            switch (currentQuestion) {
+                case 1: // Spørsmål 1
+                    if (answer === 'yes') {
+                        setQuestion("Har du en god homofil venn?");
+                    } else {
+                        setQuestion("Er det viktigere at alle andre følger regler enn deg?");
+                        currentQuestion = 4;
+                        return;
+                    }
+                    break;
+                case 2: // Spørsmål 2
+                    if (answer === 'yes') {
+                        setQuestion("Kommer du godt overens med dem?");
+                    } else {
+                        showResult('FrP', 'Du stemmer FrP – alle saker er like viktige når de diskuteres rundt bordet, men den viktigste saken din er at du har masse god mat på til det.');
+                        return;
+                    }
+                    break;
+                case 3: // Spørsmål 3
+                    if (answer === 'yes') {
+                        showResult('SV', 'Du stemmer SV – du leser deg så vidt opp på ting slik at du fremstår som interessant nok til at folk ønsker å omgås deg, men holder deg unna dybden for å unngå å tråkke noen på tærne.');
+                    } else {
+                        showResult('Rødt', 'Du stemmer Rødt – alle saker er like viktig for deg i uansett sammenheng, og når andre glemmer å passe på hva de selv står for, så sørger du for at alle blir sørget for, som om hverdagen din var en stor begravelse!');
+                    }
+                    return;
+                case 4: // Spørsmål 4
+                    if (answer === 'yes') {
+                        setQuestion("Stammer du når du snakker?");
+                    } else {
+                        setQuestion("Er du kristen?");
+                        currentQuestion = 7;
+                        return;
+                    }
+                    break;
+                case 5: // Spørsmål 5
+                    if (answer === 'yes') {
+                        showResult('AP', 'Du stemmer AP – du er flink til å tenke på alle slags muligheter, men du har litt vanskeligheter med å tenke på unnskyldninger for når det går galt - og det blir dessverre alltid å gå litt galt...');
+                    } else {
+                        setQuestion("Ler du av at andre stammer?");
+                    }
+                    break;
+                case 6: // Spørsmål 6
+                    if (answer === 'yes') {
+                        showResult('SP', 'Du stemmer SP – du har god humor og kan endre ditt perspektiv på ting. Går det galt, så kan man vel jo le av det? Så lenge det ikke går ut over deg, selvfølgelig…');
+                    } else {
+                        showResult('Høyre', 'Du stemmer Høyre – du har funnet en fin balanse mellom å se på alle mulighetene og unnskyldningene som finnes, og velge en god vei som passer deg best.');
+                    }
+                    return;
+                case 7: // Spørsmål 7
+                    if (answer === 'yes') {
+                        setQuestion("Er nestekjærlighet viktig for deg?");
+                    } else {
+                        showResult('Venstre', 'Du stemmer Venstre – du har ikke en sterk stemme for noe som helst, men du er helt overbevist over at noe er viktig for noe.');
+                    }
+                    break;
+                case 8: // Spørsmål 8
+                    showResult('KrF', 'Du stemmer KrF – har du hørt det gode ordet? "Den som ikke er med meg, er mot meg. Og den som ikke samler med meg, han sprer…"');
+                    return;
+                default:
+                    break;
+            }
+            currentQuestion++;
+        }
+
+        function setQuestion(questionText) {
+            document.getElementById('question').innerText = questionText;
+        }
+
+        function showResult(party, description) {
+            let iconPath = '';
+
+            // Sett riktig ikon basert på partiet
+            switch (party) {
+                case 'FrP':
+                    iconPath = 'path/to/frp-icon.png';
+                    break;
+                case 'SV':
+                    iconPath = 'path/to/sv-icon.png';
+                    break;
+                case 'Rødt':
+                    iconPath = 'path/to/rodt-icon.png';
+                    break;
+                case 'AP':
+                    iconPath = 'path/to/ap-icon.png';
+                    break;
+                case 'Høyre':
+                    iconPath = 'path/to/hoyre-icon.png';
+                    break;
+                case 'SP':
+                    iconPath = 'path/to/sp-icon.png';
+                    break;
+                case 'KrF':
+                    iconPath = 'path/to/krf-icon.png';
+                    break;
+                case 'Venstre':
+                    iconPath = 'path/to/venstre-icon.png';
+                    break;
+                default:
+                    iconPath = 'placeholder.png'; // Placeholder hvis ikon mangler
+            }
+
+            document.getElementById('partyIcon').src = iconPath;
+            document.getElementById('partyIcon').alt = party + ' ikon';
+            document.getElementById('resultText').innerText = description;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('question').style.display = 'none';
+            document.querySelectorAll('button').forEach(button => button.style.display = 'none');
+        }
+    </script>
+</body>
+</html>

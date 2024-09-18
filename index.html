@@ -59,7 +59,7 @@ d<!DOCTYPE html>
             switch (currentQuestion) {
                 case 1: // Spørsmål 1
                     if (answer === 'yes') {
-                        setQuestion("Har du en god homofil venn?");
+                        setQuestion("Har du en homofil venn som står deg nær?");
                     } else {
                         setQuestion("Er det veldig viktig for deg at alle andre følger reglene i samfunnet?");
                         currentQuestion = 4;
@@ -68,7 +68,7 @@ d<!DOCTYPE html>
                     break;
                 case 2: // Spørsmål 2
                     if (answer === 'yes') {
-                        setQuestion("Kommer du godt overens med dem?");
+                        setQuestion("Kommer du veldig godt overens med dem?");
                     } else {
                         showResult('FrP', 'Du stemmer FrP – alle saker er like viktige når de diskuteres rundt bordet, men den viktigste saken din er at du har masse god mat på bordet til diskusjonen.');
                         return;
